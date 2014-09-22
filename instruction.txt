@@ -1,0 +1,2 @@
+this repository for first using git .
+and this repository for the review algorithm i leart before

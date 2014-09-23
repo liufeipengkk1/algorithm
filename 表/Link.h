@@ -37,7 +37,7 @@ public:
 	virtual bool prev() = 0;
 	virtual void setStart() =0;
 	virtual void setEnd()=0;
-	virtual bool isEnd()=0;
+	virtual bool isEOF()=0;
 };
 
 template <class Elem> class LLinList:public LinkList<Elem>{

@@ -9,7 +9,7 @@
 
 template <class Elem> class Link{
 public:
-	Elem * element;
+	Elem element;
 	Link * next ;
 	Link( const Elem & elemval,Link * nextval = NULL){
 		element = elemval ;
@@ -101,8 +101,10 @@ public:
 			}
 
 			tail = temp ;
+			item = fence->element ;
 			delete fence ;
 			fence =  tail ;
+			fence->next = NULL;
 		}
 		else{
 			Link<Elem> * temp = head ;
@@ -111,13 +113,18 @@ public:
 				temp = temp->next ;
 			}
 			temp->next = fence->next ;
+			item = fence->element ;
 			delete fence ;
 			fence = temp ;
 		}
 		return true ;
 	}
 
-	bool getValue(Elem &) const {
+	bool getValue(Elem & item) const {
+		if(fence == NULL)
+			return false ;
+		item = fence->element;
+		return true;
 	}
 
 	bool next() {
